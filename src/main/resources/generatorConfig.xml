@@ -8,7 +8,8 @@
     <classPathEntry location="D:\myCenterRepository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>
     <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
         <!-- 这里引入扩展插件 -->
-        <plugin type="com.zaxk.study.mybatis.MySQLPaginationPlugin" />
+        <plugin type="com.zaxk.study.mybatis.MySQLPaginationPlugin"/>
+        <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin"/>
 
         <commentGenerator>
             <property name="suppressAllComments" value="false"/>
@@ -19,23 +20,26 @@
                         connectionURL="${mysql.url}" userId="${mysql.username}"
                         password="${mysql.password}"/>
 
-        <javaModelGenerator targetPackage="com.talkweb.study.pojos"
+        <javaModelGenerator targetPackage="com.zaxk.study.spring.pojo"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mappers"
+        <sqlMapGenerator targetPackage="mapper"
                          targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.talkweb.study.mappers"
+        <javaClientGenerator targetPackage="com.zaxk.study.spring.dao"
                              targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
+            <property name="enableRepository" value="true"/>
+            <property name="enableCache" value="userCache"/>
+            <property name="keyGenerator" value="myCacheKeyGenerator"/>
         </javaClientGenerator>
 
-        <table tableName="bass_query_main" domainObjectName="BassQueryMain"
+        <table tableName="USER" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true">
         </table>

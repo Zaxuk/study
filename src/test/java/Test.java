@@ -1,13 +1,12 @@
-import com.talkweb.study.aop.IUser;
-import com.talkweb.study.utils.LockFactory;
+import com.zaxk.study.spring.aop.IUser;
+import com.zaxk.study.spring.util.LockFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by ZhuXu on 2016/10/8 0008.
